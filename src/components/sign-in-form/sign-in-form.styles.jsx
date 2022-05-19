@@ -13,4 +13,7 @@ export const SignInContainer = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  button {
+    font-size: 11px;
+  }
 `;
