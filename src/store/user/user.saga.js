@@ -1,5 +1,7 @@
-import { takeLatest, put, all, call } from "redux-saga/effects";
-import { USER_ACTION_TYPES } from "./user.types";
+import { takeLatest, put, all, call } from 'redux-saga/effects';
+
+import { USER_ACTION_TYPES } from './user.types';
+
 import {
   signInSuccess,
   signInFailed,
@@ -7,7 +9,8 @@ import {
   signUpFailed,
   signOutSuccess,
   signOutFailed,
-} from "./user.action";
+} from './user.action';
+
 import {
   getCurrentUser,
   createUserDocumentFromAuth,
@@ -15,7 +18,7 @@ import {
   signInAuthUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
   signOutUser,
-} from "../../utils/firebase/firebase.utils";
+} from '../../utils/firebase/firebase.utils';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
   try {
@@ -38,6 +41,7 @@ export function* signInWithGoogle() {
     yield put(signInFailed(error));
   }
 }
+
 export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield call(
@@ -50,6 +54,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
     yield put(signInFailed(error));
   }
 }
+
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield call(getCurrentUser);
